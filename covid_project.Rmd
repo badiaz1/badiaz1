@@ -39,17 +39,13 @@ empty_covid_c
 
 ```
 
-```{r}
+```{r,}
 oc_data <- covid_data %>% 
   filter(location == "Oceania"|continent == "Oceania") %>%
-  mutate(location = replace(location,location == "Oceania", "Australia")) %>%
+  mutate(location = replace(location,location == "Oceania", "Australia"))
 
+oc_data$continent %>% replace_na('Oceania' )
 
-oc_data %>% 
-
-str_replaace_all(oc_data$continent, "Oceania", "A")
-
-
-
+#oc_data
 
 ```
