@@ -7,15 +7,43 @@ date: "2023-01-15"
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
+library(readr)
 ```
 
 ```{r}
-covid_data <- read.csv("https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv")
-summary (covid_data)
+covid_data <- read_csv("https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv")
+#summary (covid_data)
 ```
 
 ```{r}
+#unique(covid_data$location)
+#unique(covid_data$continent)
+
+empty_covid <- covid_data %>% filter(is.na(continent))
+empty_covid 
+
+unique(covid_data$continent)
+empty_covid2 <- covid_data %>% filter(continent == "" | location == "Africa")
+empty_covid2
+
+empty_covid_l <- covid_data %>% filter(location == "Africa")
+empty_covid_l
+
+empty_covid_lw <- covid_data %>% filter(location == "World")
+empty_covid_lw
+
+empty_covid_c <- covid_data %>% filter(continent == "Africa")
+empty_covid_c
 
 ```
 
+```{r}
+oc_data <- covid_data %>% 
+  filter(location == "Oceania"|continent == "Oceania") %>%
+  mutate(location = replace(location,location == "Oceania", "Australia"))
 
+oc_data
+         
+empty_covid_<- oc_data%>% filter(is.na(continent))
+
+```
