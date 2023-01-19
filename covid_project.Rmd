@@ -41,11 +41,24 @@ empty_covid_c
 
 ```{r,}
 oc_data <- covid_data %>% 
+  select('continent', 'location', 'date', 'hosp_patients', 'extreme_poverty','new_deaths', 'total_deaths') %>%
   filter(location == "Oceania"|continent == "Oceania") %>%
   mutate(location = replace(location,location == "Oceania", "Australia"))
 
 oc_data$continent %>% replace_na('Oceania' )
 
-#oc_data
+head(oc_data)
+tail(oc_data)
+```
+```{r}
+oc_start <- oc_data[oc_data$date >= "2020-03-01" & oc_data$date <= "2022-12-31", ]
+
+oc_start$hosp_patients[is.na(oc_start$hosp_patients)] <- 0
+oc_start$new_deaths[is.na(oc_start$new_deaths)] <- 0
+
+oc_start
+```
+```{r}
 
 ```
+
