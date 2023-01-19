@@ -47,8 +47,8 @@ oc_data <- covid_data %>%
 
 oc_data$continent %>% replace_na('Oceania' )
 
-head(oc_data)
-tail(oc_data)
+#head(oc_data)
+#tail(oc_data)
 ```
 ```{r}
 oc_start <- oc_data[oc_data$date >= "2020-03-01" & oc_data$date <= "2022-12-31", ]
@@ -59,6 +59,8 @@ oc_start$new_deaths[is.na(oc_start$new_deaths)] <- 0
 oc_start
 ```
 ```{r}
+library(ggplot2)
+
 
 ```
 
