@@ -1,0 +1,42 @@
+---
+title: "Crime data"
+output: html_document
+date: "2023-01-20"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readr)
+library(dplyr)
+library(stringr)
+library(ggplot2)
+```
+
+
+
+```{r victums, include=FALSE}
+victums <- read.csv("https://raw.githubusercontent.com/washingtonpost/data-police-shootings/master/v2/fatal-police-shootings-data.csv")
+
+victums
+```
+
+
+```{r}
+victums_filtered <- victums %>% 
+  select(-c(id, flee_status, latitude, longitude, location_precision, race_source, agency_ids))
+
+victums_filtered <- victums_filtered[victums_filtered$date <="2022-12-31", ]
+
+victums_filtered
+
+```
+
+
+
+```{r}
+count_inspect <- sort(table(victums_filtered$state))
+
+count_inspect
+```
+
