@@ -65,12 +65,14 @@ oc_start
 library(ggplot2)
 
 ggplot(data = oc_start, aes(x = date, y =new_deaths)) + geom_point()
+ggplot(data = oc_start, aes(x = date, y =hosp_patients)) + geom_point()
 ```
 
 ```{r}
 oc_2022 <- oc_data[oc_data$date >= "2022-01-01" & oc_data$date <="2022-12-31", ]
 
 ggplot(data = oc_2022, aes(x = date, y =new_deaths)) + geom_point()
-
+ggplot(data = oc_2022, aes(x = date, y = hosp_patients)) + geom_point()
 ```
 Looking at the scatter plot, we can see that most of the new deaths happened between July and September this past year. After further research, the winter months in Australia are from June to August. 
+
