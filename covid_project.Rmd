@@ -1,7 +1,7 @@
 ---
-title: "First project"
+title: "COVID-19 affect on Australia?"
 output: html_document
-date: "2023-01-15"
+date: "2023-01-22"
 ---
 
 ```{r setup, include=FALSE}
